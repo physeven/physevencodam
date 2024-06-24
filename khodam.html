@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Khodam & Ukuran Peler</title>
+    <style>
+        body {
+            background-color: #7D3C98;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+        }
+        .box {
+            background-color: #E74C3C;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input, .button {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cek Khodam Section -->
+        <div class="box">
+            <h2>Cek Khodam</h2>
+            <form id="khodamForm">
+                <label for="name">Nama:</label>
+                <input type="text" id="nameKhodam" name="name" value="yusuf" required><br><br>
+                <label for="dob">Tanggal Lahir:</label>
+                <input type="date" id="dob" name="dob" value="2004-01-24" required><br><br>
+                <button type="submit" class="button">Cek Khodam</button>
+            </form>
+            <p id="khodamResult">Nama Khodam Anda: <strong></strong></p>
+        </div>
+        <!-- Cek Ukuran Peler Section -->
+        <div class="box">
+            <h2>Cek Ukuran Peler</h2>
+            <form id="pelerForm">
+                <label for="name">Nama:</label>
+                <input type="text" id="namePeler" name="name" required><br><br>
+                <label for="age">Umur:</label>
+                <input type="number" id="age" name="age" required><br><br>
+                <button type="submit" class="button">Cek Ukuran</button>
+            </form>
+            <p id="pelerResult"></p>
+        </div>
+    </div>
+
+    <script>
+        // Cek Khodam Functionality
+        document.getElementById('khodamForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('nameKhodam').value;
+            const khodamNames = ["Kethek Ngangkang", "Harimau Jantan", "BulJem" , "Celeng Kemayoran", "Jembut kuda", "Gajah Juling", "NIki Echo", "Kontol Kebo", "Serigala", 
+            "Prabu Siletwangi", "Bakwan Jagung", "Telek Pitek", "Garangan", "Weling", "Berjembut",
+            "AnalGaring", "Asu Kawin", "BarongGeni", "Opet", "Celeng", "Buaya Wireng", 
+            "SBY Galer", "Kethek Ngangkang", "Curut", "Wit Jeruk", "Ikan Lohan", "Dinosaurus",
+            "Peli Ireng", "Babi Ngepet", "", "Bh Kwalik", "Rawa rontek", "Ulo Gondrong", 
+            "Sendal Swallow", "Untu Gudhalen", "Sound system", "Meki Chindo", "Tekek Nyangkem", 
+            "Unto Pristel", "BH Mia Khalifa", "Kondom Sutra", "Ubur-Ubur", "Kuda Ngaceng", "Kirek Kawin", 
+            "Manuk Perkutut", "Nyi Blorong", "Tobrut Jahat", "Tobrut Baik", "Kosong Goblok", "Kosong Gokk", 
+            "Rakoon", "Kosong Blog", "Peli Ireng", "Yesus Gokil", "YUDI LOVE KYKY"];
+            const randomKhodam = khodamNames[Math.floor(Math.random() * khodamNames.length)];
+            document.getElementById('khodamResult').querySelector('strong').innerText = randomKhodam;
+        });
+
+        // Cek Ukuran Peler Functionality
+        document.getElementById('pelerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('namePeler').value;
+            const size = Math.floor(Math.random() * 5) + 1;
+            document.getElementById('pelerResult').innerText = `${name}, ukuran peler Anda adalah ${size} cm.`;
+        });
+    </script>
+</body>
+</html>
